@@ -191,7 +191,8 @@ endif
 ARCHIVE = $(PYRUN)-$(PYRUNFULLVERSION)-$(PLATFORM)
 
 # Location of the Python tarball
-PYTHONTARBALL = /downloads/python/Python-$(PYTHONFULLVERSION).tgz
+PYTHONTARDIR = /downloads/python
+PYTHONTARBALL = $(PYTHONTARDIR)/Python-$(PYTHONFULLVERSION).tgz
 PYTHONSOURCEURL = https://www.python.org/ftp/python/$(PYTHONFULLVERSION)/Python-$(PYTHONFULLVERSION).tgz
 
 # Base dir used for a PyRun build
@@ -687,6 +688,11 @@ $(BINDIR)/$(PYRUN):	$(PYRUNDIR)/$(PYRUN)
 	@$(ECHO) "$(OFF)"
 	@$(ECHO) "The eGenix PyRun runtime interpreter is called: $(BINDIR)/$(PYRUN)"
 	@$(ECHO) ""
+
+# PSA: add runtime clean to give a way to progressively add
+# modules without rebuilding python every... single... time
+clean-runtime:
+	$(RM) -rf $(BUILDDIR)
 
 runtime:	$(BINDIR)/$(PYRUN)
 
