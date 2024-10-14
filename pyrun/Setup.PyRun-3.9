@@ -381,14 +381,14 @@ pyexpat -I$(srcdir)/Modules/expat -DHAVE_EXPAT_CONFIG_H -DUSE_PYEXPAT_CAPI \
 # Hye-Shik Chang's CJKCodecs
 
 # multibytecodec is required for all the other CJK codec modules
-_multibytecodec cjkcodecs/multibytecodec.c
+#_multibytecodec cjkcodecs/multibytecodec.c
 
-_codecs_cn cjkcodecs/_codecs_cn.c
-_codecs_hk cjkcodecs/_codecs_hk.c
-_codecs_iso2022 cjkcodecs/_codecs_iso2022.c
-_codecs_jp cjkcodecs/_codecs_jp.c
-_codecs_kr cjkcodecs/_codecs_kr.c
-_codecs_tw cjkcodecs/_codecs_tw.c
+#_codecs_cn cjkcodecs/_codecs_cn.c
+#_codecs_hk cjkcodecs/_codecs_hk.c
+#_codecs_iso2022 cjkcodecs/_codecs_iso2022.c
+#_codecs_jp cjkcodecs/_codecs_jp.c
+#_codecs_kr cjkcodecs/_codecs_kr.c
+#_codecs_tw cjkcodecs/_codecs_tw.c
 
 # Example -- included for reference only:
 # xx xxmodule.c
@@ -430,26 +430,26 @@ _opcode _opcode.c
 _lsprof _lsprof.c rotatingtree.c
 
 # _sqlite3
-SQLITE_DEFS=-DMODULE_NAME='"sqlite3"' -DSQLITE_OMIT_LOAD_EXTENSION
+#SQLITE_DEFS=-DMODULE_NAME='"sqlite3"' -DSQLITE_OMIT_LOAD_EXTENSION
 # @if freebsd: SQLITE_LIBS=-I/usr/local/include -L/usr/local/lib
 # @if not freebsd: SQLITE_LIBS=
-_sqlite3 \
-	_sqlite/module.c \
-	_sqlite/cache.c \
-	_sqlite/connection.c \
-	_sqlite/cursor.c \
-	_sqlite/microprotocols.c \
-	_sqlite/prepare_protocol.c \
-	_sqlite/row.c \
-	_sqlite/statement.c \
-	_sqlite/util.c \
-	$(SQLITE_DEFS) -I$(srcdir)/Modules/_sqlite \
-	$(SQLITE_LIBS) \
-	-I$(prefix)/include -L$(exec_prefix)/lib \
-	-lsqlite3
+#_sqlite3 \
+#	_sqlite/module.c \
+#	_sqlite/cache.c \
+#	_sqlite/connection.c \
+#	_sqlite/cursor.c \
+#	_sqlite/microprotocols.c \
+#	_sqlite/prepare_protocol.c \
+#	_sqlite/row.c \
+#	_sqlite/statement.c \
+#	_sqlite/util.c \
+#	$(SQLITE_DEFS) -I$(srcdir)/Modules/_sqlite \
+#	$(SQLITE_LIBS) \
+#	-I$(prefix)/include -L$(exec_prefix)/lib \
+#	-lsqlite3
 
 # bz2
-_bz2 _bz2module.c -lbz2
+#_bz2 _bz2module.c -lbz2
 
 # lzma
 #
