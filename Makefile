@@ -86,13 +86,211 @@ PYTHONABI = m
 # protection against modules which are still found by the search and
 # should not be included in pyrun. They can also be used to further
 # trim down the module/package list, if needed.
-#
-EXCLUDES = 	-x test \
+
+# big giant list of unneeded encodings
+ENCODING_EXCLUDES = -x encodings.big5 \
+	-x encodings.big5hkscs \
+	-x encodings.bz2_codec \
+	-x encodings.cp037 \
+	-x encodings.cp1006 \
+	-x encodings.cp1026 \
+	-x encodings.cp1125 \
+	-x encodings.cp1140 \
+	-x encodings.cp1250 \
+	-x encodings.cp1251 \
+	-x encodings.cp1252 \
+	-x encodings.cp1253 \
+	-x encodings.cp1254 \
+	-x encodings.cp1255 \
+	-x encodings.cp1256 \
+	-x encodings.cp1257 \
+	-x encodings.cp1258 \
+	-x encodings.cp273 \
+	-x encodings.cp424 \
+	-x encodings.cp437 \
+	-x encodings.cp500 \
+	-x encodings.cp720 \
+	-x encodings.cp737 \
+	-x encodings.cp775 \
+	-x encodings.cp850 \
+	-x encodings.cp852 \
+	-x encodings.cp855 \
+	-x encodings.cp856 \
+	-x encodings.cp857 \
+	-x encodings.cp858 \
+	-x encodings.cp860 \
+	-x encodings.cp861 \
+	-x encodings.cp862 \
+	-x encodings.cp863 \
+	-x encodings.cp864 \
+	-x encodings.cp865 \
+	-x encodings.cp866 \
+	-x encodings.cp869 \
+	-x encodings.cp874 \
+	-x encodings.cp875 \
+	-x encodings.cp932 \
+	-x encodings.cp949 \
+	-x encodings.cp950 \
+	-x encodings.euc_jis_2004 \
+	-x encodings.euc_jisx0213 \
+	-x encodings.euc_jp \
+	-x encodings.euc_kr \
+	-x encodings.gb18030 \
+	-x encodings.gb2312 \
+	-x encodings.gbk \
+	-x encodings.hex_codec \
+	-x encodings.hp_roman8 \
+	-x encodings.hz \
+	-x encodings.idna \
+	-x encodings.iso2022_jp \
+	-x encodings.iso2022_jp_1 \
+	-x encodings.iso2022_jp_2 \
+	-x encodings.iso2022_jp_2004 \
+	-x encodings.iso2022_jp_3 \
+	-x encodings.iso2022_jp_ext \
+	-x encodings.iso2022_kr \
+	-x encodings.iso8859_1 \
+	-x encodings.iso8859_10 \
+	-x encodings.iso8859_11 \
+	-x encodings.iso8859_13 \
+	-x encodings.iso8859_14 \
+	-x encodings.iso8859_15 \
+	-x encodings.iso8859_16 \
+	-x encodings.iso8859_2 \
+	-x encodings.iso8859_3 \
+	-x encodings.iso8859_4 \
+	-x encodings.iso8859_5 \
+	-x encodings.iso8859_6 \
+	-x encodings.iso8859_7 \
+	-x encodings.iso8859_8 \
+	-x encodings.iso8859_9 \
+	-x encodings.johab \
+	-x encodings.koi8_r \
+	-x encodings.koi8_t \
+	-x encodings.koi8_u \
+	-x encodings.kz1048 \
+	-x encodings.mac_arabic \
+	-x encodings.mac_croatian \
+	-x encodings.mac_cyrillic \
+	-x encodings.mac_farsi \
+	-x encodings.mac_greek \
+	-x encodings.mac_iceland \
+	-x encodings.mac_latin2 \
+	-x encodings.mac_roman \
+	-x encodings.mac_romanian \
+	-x encodings.mac_turkish \
+	-x encodings.mbcs \
+	-x encodings.oem \
+	-x encodings.palmos \
+	-x encodings.ptcp154 \
+	-x encodings.punycode \
+	-x encodings.quopri_codec \
+	-x encodings.raw_unicode_escape \
+	-x encodings.rot_13 \
+	-x encodings.shift_jis \
+	-x encodings.shift_jis_2004 \
+	-x encodings.shift_jisx0213 \
+	-x encodings.tis_620 \
+	-x encodings.unicode_escape \
+	-x encodings.utf_16 \
+	-x encodings.utf_16_be \
+	-x encodings.utf_16_le \
+	-x encodings.utf_32 \
+	-x encodings.utf_32_be \
+	-x encodings.utf_32_le \
+	-x encodings.utf_7 
+
+# don't need these either
+LIB2TO3_EXCLUDES = 	-x lib2to3 \
+	-x lib2to3.__init__ \
+	-x lib2to3.__main__ \
+	-x lib2to3.btm_matcher \
+	-x lib2to3.btm_utils \
+	-x lib2to3.fixer_base \
+	-x lib2to3.fixer_util \
+	-x lib2to3.fixes \
+	-x lib2to3.fixes.__init__ \
+	-x lib2to3.fixes.fix_apply \
+	-x lib2to3.fixes.fix_asserts \
+	-x lib2to3.fixes.fix_basestring \
+	-x lib2to3.fixes.fix_buffer \
+	-x lib2to3.fixes.fix_dict \
+	-x lib2to3.fixes.fix_except \
+	-x lib2to3.fixes.fix_exec \
+	-x lib2to3.fixes.fix_execfile \
+	-x lib2to3.fixes.fix_exitfunc \
+	-x lib2to3.fixes.fix_filter \
+	-x lib2to3.fixes.fix_funcattrs \
+	-x lib2to3.fixes.fix_future \
+	-x lib2to3.fixes.fix_getcwdu \
+	-x lib2to3.fixes.fix_has_key \
+	-x lib2to3.fixes.fix_idioms \
+	-x lib2to3.fixes.fix_import \
+	-x lib2to3.fixes.fix_imports \
+	-x lib2to3.fixes.fix_imports2 \
+	-x lib2to3.fixes.fix_input \
+	-x lib2to3.fixes.fix_intern \
+	-x lib2to3.fixes.fix_isinstance \
+	-x lib2to3.fixes.fix_itertools \
+	-x lib2to3.fixes.fix_itertools_imports \
+	-x lib2to3.fixes.fix_long \
+	-x lib2to3.fixes.fix_map \
+	-x lib2to3.fixes.fix_metaclass \
+	-x lib2to3.fixes.fix_methodattrs \
+	-x lib2to3.fixes.fix_ne \
+	-x lib2to3.fixes.fix_next \
+	-x lib2to3.fixes.fix_nonzero \
+	-x lib2to3.fixes.fix_numliterals \
+	-x lib2to3.fixes.fix_operator \
+	-x lib2to3.fixes.fix_paren \
+	-x lib2to3.fixes.fix_print \
+	-x lib2to3.fixes.fix_raise \
+	-x lib2to3.fixes.fix_raw_input \
+	-x lib2to3.fixes.fix_reduce \
+	-x lib2to3.fixes.fix_reload \
+	-x lib2to3.fixes.fix_renames \
+	-x lib2to3.fixes.fix_repr \
+	-x lib2to3.fixes.fix_set_literal \
+	-x lib2to3.fixes.fix_standarderror \
+	-x lib2to3.fixes.fix_sys_exc \
+	-x lib2to3.fixes.fix_throw \
+	-x lib2to3.fixes.fix_tuple_params \
+	-x lib2to3.fixes.fix_types \
+	-x lib2to3.fixes.fix_unicode \
+	-x lib2to3.fixes.fix_urllib \
+	-x lib2to3.fixes.fix_ws_comma \
+	-x lib2to3.fixes.fix_xrange \
+	-x lib2to3.fixes.fix_xreadlines \
+	-x lib2to3.fixes.fix_zip \
+	-x lib2to3.main \
+	-x lib2to3.patcomp \
+	-x lib2to3.pgen2 \
+	-x lib2to3.pgen2.__init__ \
+	-x lib2to3.pgen2.conv \
+	-x lib2to3.pgen2.driver \
+	-x lib2to3.pgen2.grammar \
+	-x lib2to3.pgen2.literals \
+	-x lib2to3.pgen2.parse \
+	-x lib2to3.pgen2.pgen \
+	-x lib2to3.pgen2.token \
+	-x lib2to3.pgen2.tokenize \
+	-x lib2to3.pygram \
+	-x lib2to3.pytree \
+	-x lib2to3.refactor 
+
+# these are extra
+EXTRA_EXCLUDES =
+
+EXCLUDES = 	$(ENCODING_EXCLUDES) \
+		$(LIB2TO3_EXCLUDES) \
+		-x test \
 		-x Tkinter \
 		-x tkinter \
 		-x setuptools \
 		-x pydoc_data \
-		-x pip
+		-x pip \
+
+
 
 # Package details (used for distributions and normally passed in via
 # the product Makefile)
@@ -690,7 +888,7 @@ $(BINDIR)/$(PYRUN):	$(PYRUNDIR)/$(PYRUN)
 	@$(ECHO) ""
 
 # PSA: add a target to autoinstall extras
-PYRUNEXTRAS=pyrun_extras.tar.gz
+PYRUNEXTRAS=pyrun-extras.tar.gz
 install-pyrun-extras:
 	if test -z $(PYRUNEXTRAS) || ! test -e $(PYRUNEXTRAS); then \
 		$(ECHO) " === No $(PYRUNEXTRAS) found, skipping"; \
