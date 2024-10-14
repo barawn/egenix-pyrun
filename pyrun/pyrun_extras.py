@@ -12,3 +12,8 @@
 #
 # Include mymodule and all modules referenced by it.
 #import mymodule
+import serial
+import spi
+import cobs
+import smbus2
+import electronics
