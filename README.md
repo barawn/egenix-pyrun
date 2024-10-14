@@ -1,3 +1,7 @@
+# Custom PUEO PyRun
+
+This branch holds the version of PyRun used for PUEO's PetaLinux builds.
+
 <div align="center">
   <p><a href="https://www.egenix.com/">eGenix</a> proudly presents:</p>
   <img alt="eGenix PyRun Logo" src="docs/logo-with-text.svg" width="500">
