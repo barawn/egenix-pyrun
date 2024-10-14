@@ -689,6 +689,17 @@ $(BINDIR)/$(PYRUN):	$(PYRUNDIR)/$(PYRUN)
 	@$(ECHO) "The eGenix PyRun runtime interpreter is called: $(BINDIR)/$(PYRUN)"
 	@$(ECHO) ""
 
+# PSA: add a target to autoinstall extras
+PYRUNEXTRAS=pyrun_extras.tar.gz
+install-pyrun-extras:
+	if test -z $(PYRUNEXTRAS) || ! test -e $(PYRUNEXTRAS); then \
+		$(ECHO) " === No $(PYRUNEXTRAS) found, skipping"; \
+	else	\
+		$(ECHO) "=== Installing extra modules from $(PYRUNEXTRAS)..."; \
+		tar -xvzf $(PYRUNEXTRAS) --directory $(FULLLIBDIR); \
+		$(ECHO) "done"; \
+	fi
+
 # PSA: add runtime clean to give a way to progressively add
 # modules without rebuilding python every... single... time
 clean-runtime:
